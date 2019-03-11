@@ -32,14 +32,48 @@ const yQueryUp = "Ÿ";
 const yQueryLow = "ÿ";
 
 
-function displaySearchQuery () {
+function displaySearchQuery (input) {
 
   // Clear the current root div
   clearRoot();
 
   let rootNode = document.getElementById("root");
+  const displayVal = "No Results";
 
+  // Display prompts
+  if (input === "A") {
+    displayVal = aQueryUp;
+  } else if (input === "a") {
+    displayVal = aQueryLow;
+  } else if (input === "E") {
+    displayVal = eQueryUp;
+  } else if (input === "e") {
+    displayVal = eQueryLow;
+  } else if (input === "I") {
+    displayVal = iQueryUp;
+  } else if (input === "i") {
+    displayVal = iQueryLow;
+  } else if (input === "O") {
+    displayVal = oQueryUp;
+  } else if (input === "o") {
+    displayVal = oQueryLow;
+  } else if (input === "U") {
+    displayVal = uQueryUp;
+  } else if (input === "u") {
+    displayVal = uQueryLow;
+  } else if (input === "Y") {
+    displayVal = yQueryUp;
+  } else if (input === "y") {
+    displayVal = yQueryLow;
+  }
 
+  // Append search query
+  let queryResults = document.createElement("H1");
+  let queryTextNode = document.createTextNode(displayVal);
+  queryResults.appendChild(queryTextNode);
+
+  // Display search query
+  rootNode.appendChild(queryResults);
 
 }
 

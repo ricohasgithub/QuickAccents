@@ -8,7 +8,10 @@
 <body>
 
   <div id = "search">
-    <input id = "searchbar" type="text" placeholder="🔍 Search for your accent...">
+    <input id = "input" type="text" placeholder="🔍 Search for your accent...">
+    <script>
+      setInterval(function() { ObserveInputValue($('#input').val()); }, 100);
+    </script>
   </div>
 
   <div id = "root">
