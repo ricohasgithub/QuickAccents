@@ -35,7 +35,6 @@ window.addEventListener('load', function(evt) {
 
   document.getElementById("input_field").onkeyup = function() {
     let inputValue = document.getElementById("input_field").value;
-    alert(inputValue);
     displaySearchQuery(inputValue);
   }
 
@@ -47,7 +46,7 @@ function displaySearchQuery (input) {
   clearRoot();
 
   let rootNode = document.getElementById("root");
-  const displayVal = "Welcome to Quick Accents!";
+  let displayVal = "Welcome to Quick Accents!";
 
   // Display prompts
   if (input === "A") {
