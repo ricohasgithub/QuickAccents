@@ -31,6 +31,11 @@ const yQueryUp = "Ÿ";
 // Text node for the y search field query (Lowercase)
 const yQueryLow = "ÿ";
 
+document.getElementById("input_field").addEventListener("keypress", function() {
+  let inputValue = document.getElementById("input_field").value;
+  alert(inputValue);
+  displaySearchQuery(inputValue);
+});
 
 function displaySearchQuery (input) {
 
@@ -38,7 +43,7 @@ function displaySearchQuery (input) {
   clearRoot();
 
   let rootNode = document.getElementById("root");
-  const displayVal = "No Results";
+  const displayVal = "Welcome to Quick Accents!";
 
   // Display prompts
   if (input === "A") {
@@ -65,6 +70,8 @@ function displaySearchQuery (input) {
     displayVal = yQueryUp;
   } else if (input === "y") {
     displayVal = yQueryLow;
+  } else {
+    displayVal = "No Results";
   }
 
   // Append search query
