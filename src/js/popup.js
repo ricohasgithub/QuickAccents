@@ -31,10 +31,14 @@ const yQueryUp = "Ÿ";
 // Text node for the y search field query (Lowercase)
 const yQueryLow = "ÿ";
 
-document.getElementById("input_field").addEventListener("keypress", function() {
-  let inputValue = document.getElementById("input_field").value;
-  alert(inputValue);
-  displaySearchQuery(inputValue);
+window.addEventListener('load', function(evt) {
+
+  document.getElementById("input_field").onkeyup = function() {
+    let inputValue = document.getElementById("input_field").value;
+    alert(inputValue);
+    displaySearchQuery(inputValue);
+  }
+
 });
 
 function displaySearchQuery (input) {
