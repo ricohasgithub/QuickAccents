@@ -78,7 +78,7 @@ function displaySearchQuery (input) {
   }
 
   // Append search query
-  let queryResults = document.createElement("H1");
+  let queryResults = document.createElement("H2");
   let queryTextNode = document.createTextNode(displayVal);
   queryResults.appendChild(queryTextNode);
 
