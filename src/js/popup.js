@@ -2,34 +2,37 @@
 // Search Query Text Nodes (H1)
 
 // Text node for the A search field query (Uppercase)
-const aQueryUp = "À Â";
+const aQueryUp = new Array("À","Â");
 // Text node for the a search field query (Lowercase)
-const aQueryLow = "à â";
+const aQueryLow = new Array("à","â");
 
 // Text node for the E search field query (Uppercase)
-const eQueryUp = "È É Ê Ë";
+const eQueryUp = new Array("È","É","Ê","Ë");
 // Text node for the e search field query (Lowercase)
-const eQueryLow = "è é ê ë";
+const eQueryLow = new Array("è","é","ê","ë");
 
 // Text node for the I search field query (Uppercase)
-const iQueryUp = "Î Ï";
+const iQueryUp = new Array("Î","Ï");
 // Text node for the i search field query (Lowercase)
-const iQueryLow = "î ï";
+const iQueryLow = new Array("î","ï");
 
 // Text node for the O search field query (Uppercase)
-const oQueryUp = "Ô Œ";
+const oQueryUp = new Array("Ô","Œ");
 // Text node for the o search field query (Lowercase)
-const oQueryLow = "ô œ";
+const oQueryLow = new Array("ô","œ");
 
 // Text node for the U search field query (Uppercase)
-const uQueryUp = "Ù Û Ü";
+const uQueryUp = new Array("Ù","Û","Ü");
 // Text node for the u search field query (Lowercase)
-const uQueryLow = "ù û ü";
+const uQueryLow = new Array("ù","û","ü");
 
 // Text node for the Y search field query (Uppercase)
-const yQueryUp = "Ÿ";
+const yQueryUp = new Array("Ÿ");
 // Text node for the y search field query (Lowercase)
-const yQueryLow = "ÿ";
+const yQueryLow = new Array("ÿ");
+
+// No results search query display Array
+const noResults = new Array("No Results");
 
 window.addEventListener('load', function(evt) {
 
@@ -46,45 +49,48 @@ function displaySearchQuery (input) {
   clearRoot();
 
   let rootNode = document.getElementById("root");
-  let displayVal = "Welcome to Quick Accents!";
 
   // Display prompts
   if (input === "A") {
-    displayVal = aQueryUp;
+    appendQueryResultsToRoot(rootNode, aQueryUp);
   } else if (input === "a") {
-    displayVal = aQueryLow;
+    appendQueryResultsToRoot(rootNode, aQueryLow);
   } else if (input === "E") {
-    displayVal = eQueryUp;
+    appendQueryResultsToRoot(rootNode, eQueryUp);
   } else if (input === "e") {
-    displayVal = eQueryLow;
+    appendQueryResultsToRoot(rootNode, eQueryLow);
   } else if (input === "I") {
-    displayVal = iQueryUp;
+    appendQueryResultsToRoot(rootNode, iQueryUp);
   } else if (input === "i") {
-    displayVal = iQueryLow;
+    appendQueryResultsToRoot(rootNode, iQueryLow);
   } else if (input === "O") {
-    displayVal = oQueryUp;
+    appendQueryResultsToRoot(rootNode, oQueryUp);
   } else if (input === "o") {
-    displayVal = oQueryLow;
+    appendQueryResultsToRoot(rootNode, oQueryLow);
   } else if (input === "U") {
-    displayVal = uQueryUp;
+    appendQueryResultsToRoot(rootNode, uQueryUp);
   } else if (input === "u") {
-    displayVal = uQueryLow;
+    appendQueryResultsToRoot(rootNode, uQueryLow);
   } else if (input === "Y") {
-    displayVal = yQueryUp;
+    appendQueryResultsToRoot(rootNode, yQueryUp);
   } else if (input === "y") {
-    displayVal = yQueryLow;
+    appendQueryResultsToRoot(rootNode, yQueryLow);
   } else {
-    displayVal = "No Results";
+    appendQueryResultsToRoot(rootNode, noResults);
   }
 
-  // Append search query
-  let queryResults = document.createElement("H2");
-  let queryTextNode = document.createTextNode(displayVal);
-  queryResults.appendChild(queryTextNode);
+}
 
-  // Display search query
-  rootNode.appendChild(queryResults);
+function appendQueryResultsToRoot (rootNode, displayValArray) {
+  for (var i=0; i<displayValArray.length; i++) {
+    // Append search query
+    let queryResults = document.createElement("H2");
+    let queryTextNode = document.createTextNode(displayValArray[i]);
+    queryResults.appendChild(queryTextNode);
 
+    // Display search query
+    rootNode.appendChild(queryResults);
+  }
 }
 
 function clearRoot () {
