@@ -89,23 +89,29 @@ function appendQueryResultsToRoot (rootNode, displayValArray) {
     let queryTextNode = document.createTextNode(displayValArray[i]);
     queryResults.appendChild(queryTextNode);
 
-    // Add Id
-    let queryId = "accent" + i;
-    let queryIdObtainer = "#" + queryId;
-    queryResults.setAttribute("id", queryId);
+    if (displayValArray[i] != "No Results") {
+      // Add Id
+      let queryId = "accent" + i;
+      let queryIdObtainer = "#" + queryId;
+      queryResults.setAttribute("id", queryId);
 
-    // Display search query
-    rootNode.appendChild(queryResults);
+      // Display search query
+      rootNode.appendChild(queryResults);
 
-    // Add Copy Commands
-    queryResults.addEventListener('click', function() {
-      let temp = document.createElement("textarea");
-      temp.value = queryResults.innerText;
-      rootNode.appendChild(temp);
-      temp.select();
-      document.execCommand("copy");
-      rootNode.removeChild(temp);
-    }, false);
+      // Add Copy Commands
+      queryResults.addEventListener('click', function() {
+        let temp = document.createElement("textarea");
+        temp.value = queryResults.innerText;
+        rootNode.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        rootNode.removeChild(temp);
+      }, false);
+      
+    } else {
+      // Display search query
+      rootNode.appendChild(queryResults);
+    }
 
   }
 }
