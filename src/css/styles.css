@@ -1,0 +1,15 @@
+
+#accent {
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline;
+}
+
+#accent:hover {
+  background-color: orange;
+}

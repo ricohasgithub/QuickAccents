@@ -91,8 +91,7 @@ function appendQueryResultsToRoot (rootNode, displayValArray) {
 
     if (displayValArray[i] != "No Results") {
       // Add Id
-      let queryId = "accent" + i;
-      let queryIdObtainer = "#" + queryId;
+      let queryId = "accent";
       queryResults.setAttribute("id", queryId);
 
       // Display search query
@@ -107,7 +106,7 @@ function appendQueryResultsToRoot (rootNode, displayValArray) {
         document.execCommand("copy");
         rootNode.removeChild(temp);
       }, false);
-      
+
     } else {
       // Display search query
       rootNode.appendChild(queryResults);
