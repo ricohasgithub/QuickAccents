@@ -83,13 +83,30 @@ function displaySearchQuery (input) {
 
 function appendQueryResultsToRoot (rootNode, displayValArray) {
   for (var i=0; i<displayValArray.length; i++) {
+
     // Append search query
     let queryResults = document.createElement("H2");
     let queryTextNode = document.createTextNode(displayValArray[i]);
     queryResults.appendChild(queryTextNode);
 
+    // Add Id
+    let queryId = "accent" + i;
+    let queryIdObtainer = "#" + queryId;
+    queryResults.setAttribute("id", queryId);
+
     // Display search query
     rootNode.appendChild(queryResults);
+
+    // Add Copy Commands
+    queryResults.addEventListener('click', function() {
+      let temp = document.createElement("textarea");
+      temp.value = queryResults.innerText;
+      rootNode.appendChild(temp);
+      temp.select();
+      document.execCommand("copy");
+      rootNode.removeChild(temp);
+    }, false);
+
   }
 }
 
