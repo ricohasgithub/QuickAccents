@@ -31,6 +31,11 @@ const yQueryUp = new Array("Ÿ");
 // Text node for the y search field query (Lowercase)
 const yQueryLow = new Array("ÿ");
 
+// Text node for the C search field query (Uppercase)
+const cQueryUp = new Array("Ç");
+// Text node for the c search field query (Lowercase)
+const cQueryLow = new Array("ç");
+
 // No results search query display Array
 const noResults = new Array("No Results");
 
@@ -75,6 +80,10 @@ function displaySearchQuery (input) {
     appendQueryResultsToRoot(rootNode, yQueryUp);
   } else if (input === "y") {
     appendQueryResultsToRoot(rootNode, yQueryLow);
+  } else if (input == "C") {
+    appendQueryResultsToRoot(rootNode, cQueryUp);
+  } else if (input == "c") {
+    appendQueryResultsToRoot(rootNode, cQueryLow);
   } else {
     appendQueryResultsToRoot(rootNode, noResults);
   }
